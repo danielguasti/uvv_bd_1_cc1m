@@ -2,7 +2,7 @@
 Dentro dessa pasta vou falar um pouco sobre o trabalho feito no programa Power Architect, onde funcionou como facilitador para a criação das tabelas dentro do Banco de Dados.
 
 ## Tabela Elmasri
-![Banco de dados Power Architect](Architect.png)
+![Banco de dados Power Architect](architect.png)
 
 * A tabela acima foi criada dentro do Power Architect baseado na tabela de exemplo dado no arquivo do pset. Essa tabela tem todas as tabelas necessárias para criar o banco de dados. 
 * Após criar a tabela no power architect é necessário criar o código para implementar dentro do seu banco de dados. 
