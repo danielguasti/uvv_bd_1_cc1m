@@ -1,3 +1,7 @@
+/*Entrar no ROOT*/
+mysql -u root -p
+/*inserir senha do usuário root*/
+
 /*criar banco de dados uvv*/
 create database uvv;
 
@@ -6,6 +10,10 @@ create user Daniel identified by "Daniel10";
 
 /*dar privilégios totais ao usuário no banco de dados uvv*/
 grant all privileges on uvv.* to Daniel;
+
+/*entrar no usuario criado*/
+system mysql -u Daniel -p
+/*inserir senha: Daniel10*/
 
 /*usar o banco de dados uvv*/
 use uvv;

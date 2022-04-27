@@ -1,10 +1,14 @@
+/*Entrando no usuário postgres*/
 psql -U postgres
 
+/*criando usuário e definindo ele como super usuário*/
 create user daniel with encrypted password 'daniel10'
 	SUPERUSER;
 
+/*conectando ao usuário*/
 \connect postgres daniel
 
+/*criando banco de dados*/
 create database uvv
 with
 Owner = daniel
@@ -14,10 +18,10 @@ lc_collate = 'pt_BR.UTF-8'
 lc_ctype = 'pt_BR.UTF-8'
 allow_connections = 'true';
 
-
+/*conectando o banco de dados ao meu usuário*/
 \connect uvv daniel
 
-
+/*garantindo privilégios do banco de dados para o usuário, e alterando para o usuário daniel*/
 grant all privileges on database uvv to daniel with grant option granted by daniel;
 
 create schema Elmasri authorization daniel;
@@ -32,7 +36,7 @@ SET SEARCH_PATH TO elmasri, '$user', public;
 
 
 
-
+/*criando tabela funcionario*/
 CREATE TABLE elmasri.funcionario (
                 cpf CHAR(11) NOT NULL,
                 primeiro_nome VARCHAR(15) NOT NULL,
@@ -57,7 +61,7 @@ COMMENT ON COLUMN elmasri.funcionario.salario IS 'Salário do funcionário.';
 COMMENT ON COLUMN elmasri.funcionario.cpf_supervisor IS 'CPF do supervisor. Será uma FK para a própria tabela.';
 COMMENT ON COLUMN elmasri.funcionario.numero_departamento IS 'Número do departamento do funcionário.';
 
-
+/*criando tabela dependente*/
 CREATE TABLE elmasri.dependente (
                 cpf_funcionario CHAR(11) NOT NULL,
                 nome_dependente VARCHAR(15) NOT NULL,
@@ -73,7 +77,7 @@ COMMENT ON COLUMN elmasri.dependente.sexo IS 'Sexo do dependente.';
 COMMENT ON COLUMN elmasri.dependente.data_nascimento IS 'Data de nascimento do dependente.';
 COMMENT ON COLUMN elmasri.dependente.parentesco IS 'Descrição do parentesco do dependente com o funcionário.';
 
-
+/*criando tabela departamento*/
 CREATE TABLE elmasri.departamento (
                 numero_departamento INTEGER NOT NULL,
                 nome_departamento VARCHAR(15) NOT NULL,
@@ -87,11 +91,12 @@ COMMENT ON COLUMN elmasri.departamento.nome_departamento IS 'Nome do departament
 COMMENT ON COLUMN elmasri.departamento.cpf_gerente IS 'CPF do gerente do departamento. FK da tabela funcionário.';
 COMMENT ON COLUMN elmasri.departamento.data_inicio_gerente IS 'Data do início do gerente no departamento.';
 
-
+/*definindo como chave única*/
 CREATE UNIQUE INDEX departamento_idx
  ON elmasri.departamento
  ( nome_departamento );
 
+/*criando tabela projeto*/
 CREATE TABLE elmasri.projeto (
                 numero_projeto INTEGER NOT NULL,
                 nome_projeto VARCHAR(15) NOT NULL,
@@ -105,7 +110,7 @@ COMMENT ON COLUMN elmasri.projeto.nome_projeto IS 'Nome do projeto. Deve ser ún
 COMMENT ON COLUMN elmasri.projeto.local_projeto IS 'Localização do projeto.';
 COMMENT ON COLUMN elmasri.projeto.numero_departamento IS 'Número do departamento. É uma FK para a tabela departamento.';
 
-
+/*defininco como chave única*/
 CREATE UNIQUE INDEX projeto_idx
  ON elmasri.projeto
  ( nome_projeto );
@@ -121,7 +126,7 @@ COMMENT ON COLUMN elmasri.trabalha_em.cpf_funcionario IS 'CPF do funcionário. �
 COMMENT ON COLUMN elmasri.trabalha_em.numero_projeto IS 'Número do projeto. É a  PK desta tabela e FK da projeto.';
 COMMENT ON COLUMN elmasri.trabalha_em.horas IS 'Horas trabalhadas pelo funcionário neste projeto.';
 
-
+/*criando tabela localizacoes_departamento*/
 CREATE TABLE elmasri.localizacoes_departamento (
                 numero_departamento INTEGER NOT NULL,
                 local VARCHAR(15) NOT NULL,
@@ -131,7 +136,7 @@ COMMENT ON TABLE elmasri.localizacoes_departamento IS 'Tabela que armazena as po
 COMMENT ON COLUMN elmasri.localizacoes_departamento.numero_departamento IS 'Número do departamento. É PK e FK da departamento.';
 COMMENT ON COLUMN elmasri.localizacoes_departamento.local IS 'Localização do departamento. Faz parte da PK desta tabela.';
 
-
+/*definindo chaves estrangeiras*/
 ALTER TABLE elmasri.funcionario ADD CONSTRAINT funcionario_funcionario_fk
 FOREIGN KEY (cpf_supervisor)
 REFERENCES elmasri.funcionario (cpf)
@@ -181,7 +186,7 @@ ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-
+/*inserindo dados em geral*/
 insert into funcionario values
 ('88866555576', 'Jorge', 'E', 'Brito', '1937-11-10', 'Rua do Horto, 35, São Paulo, SP', 'M', 55000, NULL, 1),
 ('33344555587', 'Fernando', 'T', 'Wong', '1955-12-08', 'Rua da Lapa, 34, São Paulo, SP', 'M', 40000, '88866555576', 5),
