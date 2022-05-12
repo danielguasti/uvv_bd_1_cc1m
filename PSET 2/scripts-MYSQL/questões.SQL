@@ -75,7 +75,11 @@ INNER JOIN projeto ON (projeto.numero_projeto = trabalha_em.numero_projeto)
 GROUP BY nome_completo, nome_projeto;
 
 /*QUESTÃO 12*/
-
+SELECT  CONCAT(funcionario.primeiro_nome,' ', funcionario.nome_meio,' ', funcionario.ultimo_nome) AS nome_completo, nome_departamento, nome_projeto
+FROM projeto
+INNER JOIN departamento ON projeto.numero_departamento = departamento.numero_departamento
+INNER JOIN funcionario ON funcionario.numero_departamento = projeto.numero_departamento
+INNER JOIN trabalha_em ON projeto.numero_projeto = trabalha_em.numero_projeto WHERE horas = NULL;
 
 /*QUESTÃO 13*/
 SELECT CONCAT(primeiro_nome,' ', nome_meio,' ',  ultimo_nome) AS nome_completo, sexo, TIMESTAMPDIFF(YEAR, data_nascimento, NOW()) AS idade
