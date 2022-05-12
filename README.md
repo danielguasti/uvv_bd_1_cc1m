@@ -1,4 +1,4 @@
-# PSET-1 BANCO DE DADOS - CC1M
+# PSET-2 BANCO DE DADOS - CC1M
 
 ## Aluno: Marcos Daniel Guasti Machado
 ## Professor: Abrantes 
@@ -8,14 +8,11 @@
 
 ### Sobre o Projeto
 
-Olá, sou o aluno Marcos Daniel e nesse primeiro pset realizo implementações do Banco de Dados do capítulo 6 do livro **Elmasri & Navathe, “Sistemas de Banco de Dados”**. Durante o trabalho faço a implementação em duas linguagens de banco de dados, sendo elas:
-* *PostgresSQL*
-* *MYSQL*
+Esse pset se trata do segundo trabalho do primeiro período de *banco de dados*, se trata de um trabalho para responder algumas questões onde se deve usar o comando *SELECT* e algumas outras funcionalidades do banco de dados. 
 
-Em sala de aula tivemos uma introdução de como funciona o *MYSQL*, e durante o pset pude praticar o *MYSQL* e aprender a utilizar o *PostgresSQL*.
+Nesse pset coloquei apenas as respostas das questões implementadas no banco de dados, e como tenho mais familiaridade utilizei o *MYSQL* para realizar esse projeto.
 
 ### Arquivos:
-Dividi o pset em duas pastas principais:
-* **[Pasta Power Architect](https://github.com/danielguasti/uvv_bd_1_cc1m/tree/main/Power%20Architect):**  Nessa pasta foi usada uma imagem como exemplo do projeto do banco de dados feito no Power Architect, além do documento xml do power architect.
+Como se trata de um trabalho mais simples e apenas com as questões para responder, criei apenas um arquivo com todos os scripts relacionados as respostas, e todas as respostas foram implementadas a partir do banco de dados criado no primeiro pset.
 
-* **[Pasta Scripts](https://github.com/danielguasti/uvv_bd_1_cc1m/tree/main/Scripts):** Nessa pasta foi armazenado os scripts tanto do *MYSQL* quanto do *PostgresSQL*.
+* **(LINK SCRIPTS)[]**
