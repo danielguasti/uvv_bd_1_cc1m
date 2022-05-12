@@ -15,4 +15,4 @@ Nesse pset coloquei apenas as respostas das questões implementadas no banco de 
 ### Arquivos:
 Como se trata de um trabalho mais simples e apenas com as questões para responder, criei apenas um arquivo com todos os scripts relacionados as respostas, e todas as respostas foram implementadas a partir do banco de dados criado no primeiro pset.
 
-* **[LINK SCRIPTS](chttps://github.com/danielguasti/uvv_bd_1_cc1m/blob/main/quest%C3%B5es.SQL)**
+* **[LINK SCRIPTS](chttps://github.com/danielguasti/uvv_bd_1_cc1m/blob/main/quest%C3%B5es.SQL):** Links dos scripts desse pset.
