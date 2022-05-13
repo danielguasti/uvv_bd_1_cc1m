@@ -42,7 +42,14 @@ INNER JOIN dependente
 WHERE funcionario.cpf = dependente.cpf_funcionario;
 
 /*QUESTÃO 7*/
-
+SELECT CONCAT (funcionario.primeiro_nome," ", funcionario.nome_meio," ", funcionario.ultimo_nome) AS nome_completo, numero_departamento, salario
+FROM funcionario
+EXCEPT
+SELECT CONCAT (funcionario.primeiro_nome," ", funcionario.nome_meio," ", funcionario.ultimo_nome) AS nome_completo, numero_departamento, salario
+FROM funcionario
+INNER JOIN dependente
+ON funcionario.cpf = dependente.cpf_funcionario
+ORDER BY numero_departamento ASC;
 
 /*QUESTÃO 8*/
 SELECT nome_departamento, nome_projeto, CONCAT(funcionario.primeiro_nome,' ', funcionario.nome_meio,' ', funcionario.ultimo_nome) AS nome_completo, horas
